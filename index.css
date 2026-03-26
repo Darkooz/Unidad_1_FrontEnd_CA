@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deportivo Pro | Club Elite</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- RESET Y VARIABLES --- */
-        :root {
+:root {
             --primary: #39135e; /* Tu color original */
             --secondary: #6c5ce7;
             --bg: #f4f7f6;
@@ -122,30 +111,3 @@
             font-size: 0.85rem;
             color: #95a5a6;
         }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Deportivo Pro</h1>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Planes</a>
-            <a href="#">Reservas</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="card">
-            <h2>Bienvenido a nuestro club</h2>
-            <p>Entrena con los mejores profesionales y alcanza tu máximo potencial en un ambiente exclusivo.</p>
-            <a href="#" class="btn">Explorar Planes</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 Club Deportivo Pro. Calidad y Rendimiento.</p>
-    </footer>
-
-</body>
-</html>
