@@ -1,11 +1,11 @@
 :root {
-            --primary: #39135e; /* Tu color original */
-            --secondary: #6c5ce7;
-            --bg: #f4f7f6;
-            --white: #ffffff;
-            --text: #2d3436;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
+    --primary: #2b1454;   /* Púrpura oscuro del logo */
+    --secondary: #ffc600; /* Amarillo/Dorado del logo */
+    --bg: #f4f7f6;
+    --white: #ffffff;
+    --text: #2d3436;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
 
         * {
             margin: 0;
