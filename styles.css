@@ -1,0 +1,261 @@
+/* ===== SPORTCLUB CHILE - ESTILOS GLOBALES ===== */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+ 
+:root {
+    --primary: #2b1454;
+    --secondary: #ffc600;
+    --bg-gradient: linear-gradient(135deg, #2b1454 0%, #6c5ce7 100%);
+    --white: #ffffff;
+    --text: #2d3436;
+    --muted: #636e72;
+    --border: #eee;
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    --input-focus-bg: #fffdf5;
+    --border-radius-card: 24px;
+    --border-radius-input: 12px;
+    --border-radius-btn: 12px;
+}
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+ 
+/* ---- HEADER ---- */
+header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+ 
+header h1 {
+    color: var(--secondary);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+ 
+nav a {
+    text-decoration: none;
+    color: var(--white);
+    margin-left: 25px;
+    font-weight: 400;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+ 
+nav a:hover {
+    color: var(--secondary);
+}
+ 
+/* ---- MAIN ---- */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+ 
+/* ---- CARD ---- */
+.card {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    border-radius: var(--border-radius-card);
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 198, 0, 0.2);
+}
+ 
+.logo-container {
+    margin-bottom: 1.5rem;
+}
+ 
+.logo-container img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+ 
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+ 
+.card > p,
+.card-desc {
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+ 
+/* ---- FORMULARIO ---- */
+form {
+    text-align: left;
+}
+ 
+.input-group {
+    margin-bottom: 1.2rem;
+}
+ 
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--primary);
+}
+ 
+input,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border);
+    border-radius: var(--border-radius-input);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    color: var(--text);
+    background: var(--white);
+}
+ 
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--secondary);
+    background-color: var(--input-focus-bg);
+}
+ 
+select {
+    appearance: none;
+    cursor: pointer;
+}
+ 
+/* Checkbox row */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+}
+ 
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+ 
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--text);
+    cursor: pointer;
+}
+ 
+/* ---- BOTÓN ---- */
+.btn {
+    background: var(--primary);
+    color: white;
+    padding: 14px;
+    border-radius: var(--border-radius-btn);
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(43, 20, 84, 0.3);
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+ 
+.btn:hover {
+    background: #3e1e75;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(43, 20, 84, 0.4);
+    border: 1px solid var(--secondary);
+}
+ 
+/* ---- LINKS DE NAVEGACIÓN ---- */
+.links {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+ 
+.links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+ 
+.links a:hover {
+    color: #6c5ce7;
+    text-decoration: underline;
+}
+ 
+/* ---- ALERTA / MENSAJE ---- */
+.alert {
+    padding: 14px 16px;
+    border-radius: var(--border-radius-input);
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: none;
+}
+ 
+.alert.success {
+    background: #e8f8f0;
+    color: #1e7e4d;
+    border: 1.5px solid #a5dfbf;
+}
+ 
+.alert.visible {
+    display: block;
+}
+ 
+/* ---- DIVIDER ---- */
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin: 1.5rem 0;
+}
+ 
+/* ---- FOOTER ---- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: rgba(255, 179, 0, 0.985);
+}

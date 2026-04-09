@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportClub | Registro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Card más ancha para el formulario largo */
+        .card {
+            max-width: 520px;
+        }
+ 
+        .section-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b2bec3;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+        }
+ 
+        .optional-tag {
+            font-size: 0.75rem;
+            color: #b2bec3;
+            font-weight: 400;
+            margin-left: 6px;
+        }
+    </style>
+</head>
+<body>
+ 
+    <header>
+        <h1>SportClub</h1>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Planes</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+ 
+    <main>
+        <section class="card">
+ 
+            <div class="logo-container">
+                <img src="logo_empresa_letra_v1.png" alt="SportClub Logo">
+            </div>
+ 
+            <h2>Crear Cuenta</h2>
+            <p class="card-desc">Únete a la comunidad SportClub y empieza a gestionar tu entrenamiento.</p>
+ 
+            <form action="#">
+ 
+                <!-- CAMPOS OBLIGATORIOS -->
+                <p class="section-label">Datos de acceso</p>
+ 
+                <div class="input-group">
+                    <label for="email">Correo Electrónico <span style="color:#e74c3c">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@deportista.com" required>
+                </div>
+ 
+                <div class="input-group">
+                    <label for="password">Contraseña <span style="color:#e74c3c">*</span></label>
+                    <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                </div>
+ 
+                <div class="divider"></div>
+ 
+                <!-- CAMPOS OPCIONALES -->
+                <p class="section-label">Perfil personal <span class="optional-tag">(opcional)</span></p>
+ 
+                <div class="input-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                </div>
+ 
+                <div class="input-group">
+                    <label for="edad">Edad</label>
+                    <input type="number" id="edad" name="edad" placeholder="Ej: 25" min="10" max="100">
+                </div>
+ 
+                <div class="checkbox-group">
+                    <input type="checkbox" id="practica" name="practica">
+                    <label for="practica">¿Practicas deporte actualmente?</label>
+                </div>
+ 
+                <div class="input-group">
+                    <label for="deporte">Tipo de deporte</label>
+                    <select id="deporte" name="deporte">
+                        <option value="" disabled selected>Selecciona un deporte</option>
+                        <option value="futbol">Fútbol</option>
+                        <option value="natacion">Natación</option>
+                        <option value="atletismo">Atletismo</option>
+                        <option value="ciclismo">Ciclismo</option>
+                        <option value="artes_marciales">Artes Marciales</option>
+                        <option value="gym">Gimnasio / Musculación</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+ 
+                <div class="input-group">
+                    <label for="objetivo">Objetivo personal</label>
+                    <input type="text" id="objetivo" name="objetivo" placeholder="Ej: Mejorar resistencia">
+                </div>
+ 
+                <div class="input-group">
+                    <label for="nivel">Nivel</label>
+                    <select id="nivel" name="nivel">
+                        <option value="" disabled selected>Selecciona tu nivel</option>
+                        <option value="principiante">Principiante</option>
+                        <option value="intermedio">Intermedio</option>
+                        <option value="avanzado">Avanzado</option>
+                    </select>
+                </div>
+ 
+                <button type="submit" class="btn">REGISTRARSE</button>
+ 
+            </form>
+ 
+            <div class="links">
+                <a href="index.html">← Volver al inicio de sesión</a>
+            </div>
+ 
+        </section>
+    </main>
+ 
+    <footer>
+        <p>© 2026 SportClub Chile — Sistema de Gestión de Usuarios Elite.</p>
+    </footer>
+ 
+</body>
+</html>
+ 
