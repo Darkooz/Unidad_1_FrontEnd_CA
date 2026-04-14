@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportClub | Dashboard Usuario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2b1454;
+            --secondary: #ffc600;
+            --accent: #1a6fdb;       /* Azul - Color Usuario */
+            --accent-light: #e8f1fd;
+            --accent-mid: #5b9bf5;
+            --white: #ffffff;
+            --text: #2d3436;
+            --muted: #636e72;
+            --border: #eee;
+            --bg: #f4f7fb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ---- HEADER ---- */
+        header {
+            background: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 5%;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-logo {
+            color: var(--secondary);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .header-logo span { color: #fff; }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-header {
+            padding: 7px 18px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s;
+            border: none;
+        }
+
+        .btn-edit {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-logout {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* ---- NAV ---- */
+        nav {
+            background: var(--accent);
+            display: flex;
+            padding: 0 5%;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 13px 18px;
+            transition: 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a.active {
+            color: #fff;
+            border-bottom-color: var(--secondary);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ---- MAIN ---- */
+        main {
+            flex: 1;
+            padding: 2rem 5%;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .welcome-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.8rem;
+        }
+
+        /* ---- GRID PRINCIPAL ---- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr 260px;
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.4rem;
+        }
+
+        .card-title {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title::before {
+            content: '';
+            width: 4px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* ---- PROGRESS DONUT ---- */
+        .progress-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .donut-wrap {
+            position: relative;
+            width: 100px; height: 100px;
+        }
+
+        .donut-wrap svg { transform: rotate(-90deg); }
+
+        .donut-text {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* ---- TABLES & LISTS ---- */
+        .clases-grid-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+
+        .clases-grid-table th {
+            text-align: left;
+            padding: 8px;
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .clases-grid-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .btn-sm {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1000px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-logo">Sport<span>Club</span></div>
+        <div class="header-actions">
+            <button class="btn-header btn-edit">✏️ Editar Perfil</button>
+            <button class="btn-header btn-logout" onclick="window.location.href='index.html'">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" class="active">Inicio</a>
+        <a href="#">Clases</a>
+        <a href="#">Reservas</a>
+        <a href="#">Mi Progreso</a>
+    </nav>
+
+    <main>
+        <div class="welcome-bar">
+            <h2>Bienvenido, <span>Carlos Albarado</span> 👋</h2>
+            <span style="background: var(--accent-light); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Miembro Activo</span>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <p class="card-title">Mi Perfil</p>
+                <div style="text-align: center; padding-bottom: 1rem;">
+                    <div style="width: 70px; height: 70px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.5rem;">👤</div>
+                    <p style="font-weight: 700; color: var(--primary);">Carlos Albarado</p>
+                    <p style="font-size: 0.8rem; color: var(--muted);">carlos.a@inacapmail.cl</p>
+                </div>
+                <div style="font-size: 0.85rem; border-top: 1px solid #eee; padding-top: 10px;">
+                    <p><strong>Deporte:</strong> Analista Programador</p>
+                    <p><strong>Nivel:</strong> Intermedio</p>
+                </div>
+            </div>
+
+            <div class="center-col">
+                <div class="card">
+                    <p class="card-title">Mi Progreso Semanal</p>
+                    <div class="progress-section">
+                        <div class="donut-wrap">
+                            <svg width="100" height="100">
+                                <circle cx="50" cy="50" r="40" stroke="#eee" stroke-width="8" fill="none" />
+                                <circle cx="50" cy="50" r="40" stroke="var(--accent)" stroke-width="8" fill="none" stroke-dasharray="251" stroke-dashoffset="60" />
+                            </svg>
+                            <div class="donut-text">
+                                <p style="font-weight: 700; color: var(--accent);">75%</p>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 0.85rem; margin-bottom: 5px;">Cercano a tu meta mensual. ¡Sigue así!</p>
+                            <div style="height: 8px; background: #eee; border-radius: 4px; overflow: hidden;">
+                                <div style="width: 75%; height: 100%; background: var(--accent);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <p class="card-title">Clases Disponibles</p>
+                    <table class="clases-grid-table">
+                        <thead>
+                            <tr>
+                                <th>Clase</th>
+                                <th>Horario</th>
+                                <th>Coach</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Spinning</strong></td>
+                                <td>Lun 18:00</td>
+                                <td>Gómez</td>
+                                <td><button class="btn-sm">Reservar</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CrossFit</strong></td>
+                                <td>Mié 10:00</td>
+                                <td>Silva</td>
+                                <td><button class="btn-sm">Reservar</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="card-title">Mis Reservas</p>
+                <div style="background: var(--accent-light); padding: 10px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid var(--accent);">
+                    <p style="font-size: 0.85rem; font-weight: 600;">HIIT - Mañana</p>
+                    <p style="font-size: 0.75rem; color: var(--muted);">09:00 AM</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 SportClub Chile — Tu mejor versión comienza hoy.</p>
+    </footer>
+
+</body>
+</html>

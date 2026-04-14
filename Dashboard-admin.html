@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportClub | Panel Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2b1454;
+            --secondary: #ffc600;
+            --accent: #d63031;       /* Rojo/Morado para Admin */
+            --accent-light: #fff5f5;
+            --accent-mid: #fab1a0;
+            --white: #ffffff;
+            --text: #2d3436;
+            --muted: #636e72;
+            --border: #eee;
+            --bg: #f4f7fb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+        
+        /* ---- HEADER ---- */
+        header { background: var(--primary); display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 5%; box-shadow: 0 2px 12px rgba(0,0,0,0.25); position: sticky; top: 0; z-index: 100; }
+        .header-logo { color: var(--secondary); font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+        .header-logo span { color: #fff; }
+        .btn-header { padding: 7px 18px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-family: inherit; }
+        .btn-logout { background: var(--secondary); color: var(--primary); }
+
+        /* ---- NAV ---- */
+        nav { background: var(--primary); display: flex; padding: 0 5%; border-top: 1px solid rgba(255,255,255,0.1); }
+        nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 13px 18px; transition: 0.2s; }
+        nav a.active { color: var(--secondary); border-bottom: 3px solid var(--secondary); background: rgba(255,255,255,0.05); }
+
+        /* ---- MAIN ---- */
+        main { flex: 1; padding: 2rem 5%; max-width: 1200px; width: 100%; margin: 0 auto; }
+        .welcome-bar { margin-bottom: 1.8rem; }
+        .welcome-bar h2 span { color: var(--accent); }
+
+        /* ---- GRID DE ESTADÍSTICAS (3 Columnas) ---- */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        
+        .card { background: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.04); }
+        .card-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); font-weight: 600; margin-bottom: 1rem; }
+        
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary); display: block; }
+        .stat-desc { font-size: 0.8rem; font-weight: 500; }
+
+        /* ---- TABLA ---- */
+        .clases-grid-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px; }
+        .clases-grid-table th { background: var(--accent-light); color: var(--accent); padding: 12px; text-align: left; font-weight: 600; }
+        .clases-grid-table td { padding: 12px; border-bottom: 1px solid var(--border); }
+        
+        .badge { padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        .badge-admin { background: #ffeaa7; color: #d63031; }
+        .badge-user { background: #dfe6e9; color: #2d3436; }
+
+        @media (max-width: 850px) { .stats-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-logo">Sport<span>Club</span> Admin</div>
+        <div class="header-actions">
+            <button class="btn-header btn-logout" onclick="window.location.href='index.html'">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" class="active">Usuarios</a>
+        <a href="#">Reportes</a>
+        <a href="#">Finanzas</a>
+        <a href="#">Configuración</a>
+    </nav>
+
+    <main>
+        <div class="welcome-bar">
+            <h2>Panel de <span>Administración</span> ⚙️</h2>
+            <p style="color: var(--muted); font-size: 0.9rem;">Control total del sistema SportClub</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="card">
+                <p class="card-title">Usuarios Totales</p>
+                <span class="stat-number">1,240</span>
+                <span class="stat-desc" style="color: #2ecc71;">↑ 12% este mes</span>
+            </div>
+            <div class="card">
+                <p class="card-title">Clases Hoy</p>
+                <span class="stat-number">15</span>
+                <span class="stat-desc" style="color: var(--muted);">8 en la mañana / 7 tarde</span>
+            </div>
+            <div class="card">
+                <p class="card-title">Ingresos Proyectados</p>
+                <span class="stat-number">$2.4M</span>
+                <span class="stat-desc" style="color: #2ecc71;">Meta mensual: 85%</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <p class="card-title">Gestión de Cuentas Recientes</p>
+            <table class="clases-grid-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Carlos Albarado</strong></td>
+                        <td>carlos@user.cl</td>
+                        <td><span class="badge badge-user">Usuario</span></td>
+                        <td><span style="color: #2ecc71;">● Activo</span></td>
+                        <td><button style="color: var(--accent); background: none; border: none; cursor: pointer; font-weight: 600;">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Roberto Silva</strong></td>
+                        <td>roberto@coach.cl</td>
+                        <td><span class="badge" style="background: #d1f7e0; color: #28a745;">Coach</span></td>
+                        <td><span style="color: #2ecc71;">● Activo</span></td>
+                        <td><button style="color: var(--accent); background: none; border: none; cursor: pointer; font-weight: 600;">Editar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--muted); font-size: 0.8rem;">
+        © 2026 SportClub Chile — Sistema de Control Maestro.
+    </footer>
+
+</body>
+</html>
